@@ -173,7 +173,7 @@ router.put("/EditDoctor/:id", async (req, res) => {
 //Delete a Doctor
 router.delete("/DeleteDoctor/:id", async (req, res) => {
   try {
-    let doctorCheck = await DoctorSchema.findOneAndRemove(req.params.id);   
+    let doctorCheck = await DoctorSchema.findByIdAndRemove(req.params.id);   
     if(doctorCheck){
         res.json({
           doctorDeleteSuccess: true,

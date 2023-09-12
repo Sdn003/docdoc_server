@@ -71,40 +71,40 @@ router.post("/AddAdmin", async (req, res) => {
 });
 
 //Edit a Admin
-router.put("/EditAdmin/:id", async (req, res) => {
- try {
-    let id = req.params.id
-     let adminCheck = await AdminManageSchema.findOneAndReplace(
-     {_id : id},
-     req.body
-   );
-   if (adminCheck) {
-     res.json({
-       AdminEditSuccess: true,
-       message: "Update Successful",
-     });
-   } else {
-     res.json({
-       AdminEditSuccess: false,
-       message: "Error occurred while Editing",
-     });
-   }
- } catch (error) {
-  //  console.log(error, "Editing a Admin");
-    if (error.keyPattern.email === 1) {
-      res.json({
-        message: "Validation Error",
-        statusCode: 403,
-        error: `${error.keyValue.email} - Email exists for another Patient`,
-      });
-    }
-    res.json({
-      message: "Error Occurred",
-      statusCode: 500,
-      error,
-    });
- }
-});
+// router.put("/EditAdmin/:id", async (req, res) => {
+//  try {
+//     let id = req.params.id
+//      let adminCheck = await AdminManageSchema.findOneAndReplace(
+//      {_id : id},
+//      req.body
+//    );
+//    if (adminCheck) {
+//      res.json({
+//        AdminEditSuccess: true,
+//        message: "Update Successful",
+//      });
+//    } else {
+//      res.json({
+//        AdminEditSuccess: false,
+//        message: "Error occurred while Editing",
+//      });
+//    }
+//  } catch (error) {
+//   //  console.log(error, "Editing a Admin");
+//     if (error.keyPattern.email === 1) {
+//       res.json({
+//         message: "Validation Error",
+//         statusCode: 403,
+//         error: `${error.keyValue.email} - Email exists for another Patient`,
+//       });
+//     }
+//     res.json({
+//       message: "Error Occurred",
+//       statusCode: 500,
+//       error,
+//     });
+//  }
+// });
 
 //Delete a Admin
 router.delete("/DeleteAdmin/:id", async (req, res) => {
