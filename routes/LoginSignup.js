@@ -37,7 +37,7 @@ router.post('/Signup', async(req, res) => {
                 "successSignup" : true,
                 "token" : token,
                 "signedInUserdata" : doc,
-                 "message" : "User Registered Succsessfully"   
+                 "message" : "User Registered Successfully"   
             })
         }
         else{
@@ -86,7 +86,7 @@ router.post('/Login', async(req, res) => {
         else{
             res.json({
               userExist: false,
-              "message" : "Please Sign up tp proceed"
+              "message" : "Please Sign up to proceed"
             });
         }
    
